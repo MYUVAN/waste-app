@@ -7,6 +7,20 @@ export const householdData = [
   { id: 'HH-006', address: '333 Earth Blvd', dustbinStatus: 'Full', recyclablePercent: 68, lastUpdate: '1m ago' },
 ];
 
+export const streetDustbinData = [
+    { id: 'ST-01', streetName: 'Green Street', district: 'North', dustbinStatus: 'Full', assignedWorkman: null },
+    { id: 'ST-02', streetName: 'Eco Avenue', district: 'North', dustbinStatus: 'Half', assignedWorkman: 'W-002' },
+    { id: 'ST-03', streetName: 'Recycle Road', district: 'South', dustbinStatus: 'Empty', assignedWorkman: null },
+    { id: 'ST-04', streetName: 'Nature Way', district: 'South', dustbinStatus: 'Full', assignedWorkman: 'W-001' },
+    { id: 'ST-05', streetName: 'Planet Place', district: 'East', dustbinStatus: 'Half', assignedWorkman: null },
+];
+
+export const workmenData = [
+    { id: 'W-001', name: 'John Doe' },
+    { id: 'W-002', name: 'Jane Smith' },
+    { id: 'W-003', name: 'Peter Jones' },
+];
+
 export const collectionSchedule = [
   { area: 'North District', day: 'Monday', items: 'General & Recyclables' },
   { area: 'South District', day: 'Tuesday', items: 'General & Recyclables' },
