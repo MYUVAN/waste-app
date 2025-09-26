@@ -49,3 +49,18 @@ export const rewardTiers = {
   silver: 70,
   gold: 90,
 };
+
+export const monthlyCollectionData = [
+  { month: 'Jan', total: 350, recyclable: 220 },
+  { month: 'Feb', total: 380, recyclable: 240 },
+  { month: 'Mar', total: 410, recyclable: 260 },
+  { month: 'Apr', total: 400, recyclable: 250 },
+  { month: 'May', total: 420, recyclable: 270 },
+  { month: 'Jun', total: 450, recyclable: 290 },
+  { month: 'Jul', total: 470, recyclable: 300 },
+  { month: 'Aug', total: 460, recyclable: 295 },
+  { month: 'Sep', total: 440, recyclable: 280 },
+  { month: 'Oct', total: 430, recyclable: 275 },
+  { month: 'Nov', total: 480, recyclable: 310 },
+  { month: 'Dec', total: 520, recyclable: 340 },
+];

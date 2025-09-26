@@ -7,6 +7,7 @@ import ScheduleEditor from './components/schedule-editor';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import StreetDustbinList from './components/street-dustbin-list';
 import DistrictRecyclingChart from './components/district-recycling-chart';
+import MonthlyCollectionChart from './components/monthly-collection-chart';
 
 export default function MunicipalDashboard() {
   return (
@@ -21,24 +22,35 @@ export default function MunicipalDashboard() {
          <TabsContent value="streets">
           <StreetDustbinList />
         </TabsContent>
-        <TabsContent value="reports" className="grid gap-4 md:gap-8 lg:grid-cols-2">
+        <TabsContent value="reports" className="grid gap-4 md:gap-8">
             <Card>
                 <CardHeader>
-                    <CardTitle>City-Wide Waste Composition</CardTitle>
+                    <CardTitle>Monthly Collection Report</CardTitle>
+                    <CardDescription>Total vs. Recyclable waste collected this year (in tonnes)</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <WasteReportsChart />
+                    <MonthlyCollectionChart />
                 </CardContent>
             </Card>
-             <Card>
-                <CardHeader>
-                    <CardTitle>Total Recyclable Waste by District</CardTitle>
-                    <CardDescription>Tonnes collected this month</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <DistrictRecyclingChart />
-                </CardContent>
-            </Card>
+            <div className="grid gap-4 md:gap-8 lg:grid-cols-2">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>City-Wide Waste Composition</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <WasteReportsChart />
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Total Recyclable Waste by District</CardTitle>
+                        <CardDescription>Tonnes collected this month</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <DistrictRecyclingChart />
+                    </CardContent>
+                </Card>
+            </div>
         </TabsContent>
         <TabsContent value="rewards">
             <RewardSettings />
