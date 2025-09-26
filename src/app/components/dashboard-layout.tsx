@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { CircleUserRound } from 'lucide-react';
 import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
 
 type DashboardLayoutProps = {
   children: ReactNode;
@@ -28,6 +29,7 @@ export function DashboardLayout({ children, userType }: DashboardLayoutProps) {
         </nav>
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
             <div className="ml-auto font-semibold">{userType} Dashboard</div>
+            <ThemeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
@@ -38,8 +40,9 @@ export function DashboardLayout({ children, userType }: DashboardLayoutProps) {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
+              <Link href="/support">
+                <DropdownMenuItem>Support</DropdownMenuItem>
+              </Link>
               <DropdownMenuSeparator />
               <Link href="/login">
                 <DropdownMenuItem>Logout</DropdownMenuItem>
