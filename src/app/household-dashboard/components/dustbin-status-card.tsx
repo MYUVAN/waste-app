@@ -9,35 +9,11 @@ import { cn } from '@/lib/utils';
 type Status = 'Empty' | 'Half' | 'Full' | 'Overfilled';
 
 export default function DustbinStatusCard() {
-  const [fillLevel, setFillLevel] = useState(0);
-  const [weight, setWeight] = useState(0);
-
-  useEffect(() => {
-    // Mock sensor data updates
-    const interval = setInterval(() => {
-      const newFillLevel = Math.random() * 100;
-      setFillLevel(newFillLevel);
-      setWeight(newFillLevel * 0.2); // Mock weight based on fill level (e.g., 20kg max)
-    }, 5000);
-    
-    // Set initial random value
-    const initialFillLevel = Math.random() * 100;
-    setFillLevel(initialFillLevel);
-    setWeight(initialFillLevel * 0.2);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  let status: Status = 'Empty';
-  let statusColor = 'text-green-600';
-  if (fillLevel > 85) {
-    status = 'Full';
-    statusColor = 'text-red-600';
-  } else if (fillLevel > 40) {
-    status = 'Half';
-    statusColor = 'text-yellow-600';
-  }
-
+  const fillLevel = 50; // Fixed fill level
+  const weight = 10; // Fixed weight
+  const status: Status = 'Half';
+  const statusColor = 'text-yellow-600';
+  
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -60,9 +36,7 @@ export default function DustbinStatusCard() {
         </div>
 
         <Progress value={fillLevel} className={cn("mt-4 h-3 transition-all",
-           status === 'Full' ? '[&>div]:bg-red-500' :
-           status === 'Half' ? '[&>div]:bg-yellow-500' :
-           '[&>div]:bg-green-500'
+           '[&>div]:bg-yellow-500'
         )} />
         <p className="text-xs text-muted-foreground mt-2">Last updated: just now</p>
       </CardContent>
