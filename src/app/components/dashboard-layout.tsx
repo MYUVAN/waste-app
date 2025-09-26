@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 type DashboardLayoutProps = {
   children: ReactNode;
-  userType: 'Household' | 'Municipal';
+  userType: 'Household' | 'Municipal' | 'Worksman' | 'Service';
 };
 
 export function DashboardLayout({ children, userType }: DashboardLayoutProps) {

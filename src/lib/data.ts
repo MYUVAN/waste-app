@@ -21,6 +21,11 @@ export const workmenData = [
     { id: 'W-003', name: 'Peter Jones' },
 ];
 
+export const serviceRequestsData = [
+    { householdId: 'HH-004', address: '101 Nature Way', issue: 'Dustbin sensor not responding', status: 'Pending' },
+    { householdId: 'HH-001', address: '123 Green St', issue: 'Dustbin lid broken', status: 'In Progress' },
+];
+
 export const collectionSchedule = [
   { area: 'North District', day: 'Monday', items: 'General & Recyclables' },
   { area: 'South District', day: 'Tuesday', items: 'General & Recyclables' },

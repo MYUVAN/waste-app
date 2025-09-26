@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Logo } from '@/components/logo';
-import { Home, Briefcase, HardHat } from 'lucide-react';
+import { Home, Briefcase, HardHat, Wrench } from 'lucide-react';
 
 export default function LoginPage() {
   return (
@@ -20,10 +20,11 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="household" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-4">
               <TabsTrigger value="household"><Home className="mr-2 h-4 w-4" />Household</TabsTrigger>
               <TabsTrigger value="municipal"><Briefcase className="mr-2 h-4 w-4" />Municipal</TabsTrigger>
               <TabsTrigger value="worksman"><HardHat className="mr-2 h-4 w-4" />Worksman</TabsTrigger>
+              <TabsTrigger value="service"><Wrench className="mr-2 h-4 w-4" />Service</TabsTrigger>
             </TabsList>
             <TabsContent value="household">
               <form className="space-y-4 pt-4">
@@ -72,6 +73,23 @@ export default function LoginPage() {
                 <Link href="/worksman-dashboard" passHref>
                   <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                     Login as Worksman
+                  </Button>
+                </Link>
+              </form>
+            </TabsContent>
+             <TabsContent value="service">
+              <form className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="service-id">Service ID</Label>
+                  <Input id="service-id" placeholder="e.g., S-001" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="service-password">Password</Label>
+                  <Input id="service-password" type="password" required />
+                </div>
+                <Link href="/service-dashboard" passHref>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                    Login as Service
                   </Button>
                 </Link>
               </form>
