@@ -9,7 +9,7 @@ export default function DistrictRecyclingChart() {
     const chartConfig = {
         tonnes: {
           label: 'Tonnes',
-          color: 'hsl(var(--chart-1))',
+          color: 'hsl(var(--chart-3))',
         },
     };
 
@@ -20,9 +20,12 @@ export default function DistrictRecyclingChart() {
           <BarChart data={districtRecyclingData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
             <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
             <YAxis tickLine={false} axisLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
-            <Tooltip cursor={{ fill: 'hsl(var(--card))' }} content={<ChartTooltipContent />} />
+            <Tooltip
+                cursor={{ fill: 'hsl(var(--card))' }}
+                content={<ChartTooltipContent indicator="dot" />}
+              />
              <Legend content={<ChartLegendContent />} />
-            <Bar dataKey="tonnes" fill="hsl(var(--chart-1))" radius={4} />
+            <Bar dataKey="tonnes" fill="hsl(var(--chart-3))" radius={4} />
           </BarChart>
         </ResponsiveContainer>
       </ChartContainer>
