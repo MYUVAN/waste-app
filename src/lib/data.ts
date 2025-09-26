@@ -21,9 +21,18 @@ export const workmenData = [
     { id: 'W-003', name: 'Peter Jones' },
 ];
 
-export const serviceRequestsData = [
+export type ServiceRequest = {
+  householdId: string;
+  address: string;
+  issue: string;
+  status: 'Pending' | 'In Progress' | 'Resolved';
+  notes?: string;
+};
+
+export const serviceRequestsData: ServiceRequest[] = [
     { householdId: 'HH-004', address: '101 Nature Way', issue: 'Dustbin sensor not responding', status: 'Pending' },
     { householdId: 'HH-001', address: '123 Green St', issue: 'Dustbin lid broken', status: 'In Progress' },
+    { householdId: 'HH-002', address: '456 Eco Ave', issue: 'Weight sensor inaccurate', status: 'Pending' },
 ];
 
 export const collectionSchedule = [
