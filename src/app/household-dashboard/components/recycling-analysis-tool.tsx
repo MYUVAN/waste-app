@@ -12,7 +12,6 @@ import { Bot, Loader2 } from 'lucide-react';
 
 export default function RecyclingAnalysisTool() {
   const [percentage, setPercentage] = useState(50);
-  const [details, setDetails] = useState('');
   const [analysis, setAnalysis] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -26,7 +25,7 @@ export default function RecyclingAnalysisTool() {
     try {
       const result = await analyzeRecyclingPerformance({
         recyclableWastePercentage: percentage,
-        householdDetails: details || 'Standard urban family of 4.',
+        householdDetails: 'Standard urban family of 4.', // This is now a fixed value
         municipalityName: 'EcoSort City',
       });
       setAnalysis(result.analysis);
@@ -58,16 +57,7 @@ export default function RecyclingAnalysisTool() {
               disabled={isLoading}
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="household-details">Household Details (Optional)</Label>
-            <Textarea
-              id="household-details"
-              placeholder="e.g., Family of 4, we have a garden, we buy lots of packaged food."
-              value={details}
-              onChange={(e) => setDetails(e.target.value)}
-              disabled={isLoading}
-            />
-          </div>
+          
           {analysis && !isLoading && (
             <Alert>
               <Bot className="h-4 w-4" />

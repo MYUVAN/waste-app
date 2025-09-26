@@ -59,11 +59,10 @@ export default function DustbinStatusCard() {
             </div>
         </div>
 
-        <Progress value={fillLevel} className="mt-4 h-3 transition-all" indicatorclassname={cn(
-          "transition-all",
-          status === 'Full' && 'bg-red-500',
-          status === 'Half' && 'bg-yellow-500',
-          status === 'Empty' && 'bg-green-500',
+        <Progress value={fillLevel} className={cn("mt-4 h-3 transition-all",
+           status === 'Full' ? '[&>div]:bg-red-500' :
+           status === 'Half' ? '[&>div]:bg-yellow-500' :
+           '[&>div]:bg-green-500'
         )} />
         <p className="text-xs text-muted-foreground mt-2">Last updated: just now</p>
       </CardContent>
