@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import StreetDustbinList from './components/street-dustbin-list';
 import DistrictRecyclingChart from './components/district-recycling-chart';
 import MonthlyCollectionChart from './components/monthly-collection-chart';
+import TotalWasteCard from './components/total-waste-card';
 
 export default function MunicipalDashboard() {
   return (
@@ -23,15 +24,18 @@ export default function MunicipalDashboard() {
           <StreetDustbinList />
         </TabsContent>
         <TabsContent value="reports" className="grid gap-4 md:gap-8">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Monthly Collection Report</CardTitle>
-                    <CardDescription>Total vs. Recyclable waste collected this year (in tonnes)</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <MonthlyCollectionChart />
-                </CardContent>
-            </Card>
+            <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+              <TotalWasteCard />
+              <Card className="lg:col-span-2">
+                  <CardHeader>
+                      <CardTitle>Monthly Collection Report</CardTitle>
+                      <CardDescription>Total vs. Recyclable waste collected this year (in tonnes)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                      <MonthlyCollectionChart />
+                  </CardContent>
+              </Card>
+            </div>
             <div className="grid gap-4 md:gap-8 lg:grid-cols-2">
                 <Card>
                     <CardHeader>

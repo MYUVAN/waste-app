@@ -9,7 +9,7 @@ export default function DistrictRecyclingChart() {
     const chartConfig = {
         tonnes: {
           label: 'Tonnes',
-          color: 'hsl(var(--chart-3))',
+          color: 'hsl(var(--chart-1))',
         },
     };
 
@@ -25,7 +25,7 @@ export default function DistrictRecyclingChart() {
                 content={<ChartTooltipContent indicator="dot" />}
               />
              <Legend content={<ChartLegendContent />} />
-            <Bar dataKey="tonnes" fill="hsl(var(--chart-3))" radius={4} />
+            <Bar dataKey="tonnes" fill="hsl(var(--chart-1))" radius={4} />
           </BarChart>
         </ResponsiveContainer>
       </ChartContainer>

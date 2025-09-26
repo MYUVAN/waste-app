@@ -64,3 +64,5 @@ export const monthlyCollectionData = [
   { month: 'Nov', total: 480, recyclable: 310 },
   { month: 'Dec', total: 520, recyclable: 340 },
 ];
+
+export const currentMonthTotal = monthlyCollectionData.reduce((acc, item) => acc + item.total, 0) / 12;
