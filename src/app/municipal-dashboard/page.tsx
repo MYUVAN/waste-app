@@ -5,8 +5,9 @@ import HouseholdList from './components/household-list';
 import WasteReportsChart from './components/waste-reports-chart';
 import RewardSettings from './components/reward-settings';
 import ScheduleEditor from './components/schedule-editor';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import StreetDustbinList from './components/street-dustbin-list';
+import DistrictRecyclingChart from './components/district-recycling-chart';
 
 export default function MunicipalDashboard() {
   return (
@@ -25,13 +26,22 @@ export default function MunicipalDashboard() {
          <TabsContent value="streets">
           <StreetDustbinList />
         </TabsContent>
-        <TabsContent value="reports">
+        <TabsContent value="reports" className="grid gap-4 md:gap-8 lg:grid-cols-2">
             <Card>
                 <CardHeader>
                     <CardTitle>City-Wide Waste Composition</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <WasteReportsChart />
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <CardTitle>Total Recyclable Waste by District</CardTitle>
+                    <CardDescription>Tonnes collected this month</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <DistrictRecyclingChart />
                 </CardContent>
             </Card>
         </TabsContent>

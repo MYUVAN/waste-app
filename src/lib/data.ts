@@ -35,6 +35,15 @@ export const wasteCompositionData = [
   { name: 'General', value: 15, fill: 'hsl(var(--chart-3))' },
 ];
 
+export const districtRecyclingData = [
+  { name: 'North', tonnes: 12.5 },
+  { name: 'South', tonnes: 8.2 },
+  { name: 'East', tonnes: 15.1 },
+  { name: 'West', tonnes: 7.8 },
+  { name: 'Central', tonnes: 18.9 },
+];
+
+
 export const rewardTiers = {
   bronze: 50,
   silver: 70,
