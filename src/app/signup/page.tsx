@@ -10,16 +10,28 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Logo } from '@/components/logo';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { useToast } from '@/hooks/use-toast';
 
 type Role = 'household' | 'municipal' | 'worksman' | 'service';
 
 export default function SignupPage() {
   const [role, setRole] = useState<Role | ''>('');
   const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      toast({
+        title: 'Error',
+        description: 'Passwords do not match. Please try again.',
+        variant: 'destructive',
+      });
+      return;
+    }
     console.log(`Signup request for role: ${role} with ID: ${id}`);
     setIsSubmitted(true);
   };
@@ -97,19 +109,41 @@ export default function SignupPage() {
             </div>
 
             {role && (
-              <div className="space-y-2">
-                <Label htmlFor="role-id">{getRoleIdLabel()}</Label>
-                <Input
-                  id="role-id"
-                  placeholder={getRoleIdPlaceholder()}
-                  required
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                />
-              </div>
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="role-id">{getRoleIdLabel()}</Label>
+                  <Input
+                    id="role-id"
+                    placeholder={getRoleIdPlaceholder()}
+                    required
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="confirm-password">Confirm Password</Label>
+                  <Input
+                    id="confirm-password"
+                    type="password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                </div>
+              </>
             )}
             
-            <Button type="submit" className="w-full" disabled={!role || !id}>
+            <Button type="submit" className="w-full" disabled={!role || !id || !password || !confirmPassword}>
               Request Account
             </Button>
           </form>
