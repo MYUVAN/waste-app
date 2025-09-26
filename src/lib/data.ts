@@ -1,3 +1,13 @@
+export type StreetDustbin = {
+  id: string;
+  streetName: string;
+  district: string;
+  dustbinStatus: 'Full' | 'Half' | 'Empty';
+  assignedWorkman: string | null;
+  completed?: boolean;
+};
+
+
 export const householdData = [
   { id: 'HH-001', address: '123 Green St', dustbinStatus: 'Full', recyclablePercent: 82, lastUpdate: '2m ago' },
   { id: 'HH-002', address: '456 Eco Ave', dustbinStatus: 'Half', recyclablePercent: 55, lastUpdate: '15m ago' },
@@ -7,12 +17,12 @@ export const householdData = [
   { id: 'HH-006', address: '333 Earth Blvd', dustbinStatus: 'Full', recyclablePercent: 68, lastUpdate: '1m ago' },
 ];
 
-export const streetDustbinData = [
+export const streetDustbinData: StreetDustbin[] = [
     { id: 'ST-01', streetName: 'Green Street', district: 'North', dustbinStatus: 'Full', assignedWorkman: null },
     { id: 'ST-02', streetName: 'Eco Avenue', district: 'North', dustbinStatus: 'Half', assignedWorkman: 'W-002' },
     { id: 'ST-03', streetName: 'Recycle Road', district: 'South', dustbinStatus: 'Empty', assignedWorkman: null },
     { id: 'ST-04', streetName: 'Nature Way', district: 'South', dustbinStatus: 'Full', assignedWorkman: 'W-001' },
-    { id: 'ST-05', streetName: 'Planet Place', district: 'East', dustbinStatus: 'Half', assignedWorkman: null },
+    { id: 'ST-05', streetName: 'Planet Place', district: 'East', dustbinStatus: 'Full', assignedWorkman: null },
 ];
 
 export const workmenData = [
@@ -31,8 +41,8 @@ export type ServiceRequest = {
 
 export const serviceRequestsData: ServiceRequest[] = [
     { householdId: 'HH-004', address: '101 Nature Way', issue: 'Dustbin sensor not responding', status: 'Pending' },
-    { householdId: 'HH-001', address: '123 Green St', issue: 'Dustbin lid broken', status: 'In Progress' },
-    { householdId: 'HH-002', address: '456 Eco Ave', issue: 'Weight sensor inaccurate', status: 'Pending' },
+    { householdId: 'HH-001', address: '123 Green St', issue: 'Dustbin lid broken', status: 'In Progress', notes: 'Replacement part ordered.' },
+    { householdId: 'HH-002', address: '456 Eco Ave', issue: 'Weight sensor inaccurate', status: 'Resolved', notes: 'Recalibrated the sensor.' },
 ];
 
 export const collectionSchedule = [
@@ -79,4 +89,4 @@ export const monthlyCollectionData = [
   { month: 'Dec', total: 520, recyclable: 340 },
 ];
 
-export const currentMonthTotal = monthlyCollectionData.reduce((acc, item) => acc + item.total, 0) / 12;
+export const currentMonthTotal = monthlyCollectionData[4].total;

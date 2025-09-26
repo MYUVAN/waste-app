@@ -1,6 +1,7 @@
 import { DashboardLayout } from '../components/dashboard-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ListChecks, Truck } from 'lucide-react';
+import AssignedTasksCard from './components/assigned-tasks-card';
 
 export default function WorksmanDashboard() {
   return (
@@ -14,7 +15,7 @@ export default function WorksmanDashboard() {
             <Truck className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">North District</div>
+            <div className="text-2xl font-bold">North & South Districts</div>
             <p className="text-xs text-muted-foreground">
               Assigned collection route
             </p>
@@ -28,24 +29,14 @@ export default function WorksmanDashboard() {
             <ListChecks className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12 / 48</div>
+            <div className="text-2xl font-bold">2 / 5</div>
             <p className="text-xs text-muted-foreground">
-              Households visited today
+              Street dustbins emptied today
             </p>
           </CardContent>
         </Card>
       </div>
-       <Card>
-          <CardHeader>
-            <CardTitle>Assigned Schedule</CardTitle>
-            <CardDescription>
-              Your collection tasks for the day.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Your work schedule will appear here.</p>
-          </CardContent>
-        </Card>
+       <AssignedTasksCard />
     </DashboardLayout>
   );
 }
