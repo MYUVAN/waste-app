@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { CircleUserRound } from 'lucide-react';
 import Link from 'next/link';
-import { ThemeToggle } from './theme-toggle';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 type DashboardLayoutProps = {
   children: ReactNode;
